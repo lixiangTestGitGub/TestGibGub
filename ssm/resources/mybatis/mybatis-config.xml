@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <setting name="" value=""/>
+    </settings>
+    <!--别名-->
+    <typeAliases>
+        <!--批量扫描-->
+        <!--<package name="com.zxhm.entity"/>-->
+        <!--单个别名-->
+        <!--<typeAlias type="com.zxhm.entity" alias=""/>-->
+    </typeAliases>
+
+    <!--加载映射文件-->
+    <mappers>
+        <mapper class="resources/mybatis/mybatis-mapper.xml"></mapper>
+    </mappers>
+
+</configuration>

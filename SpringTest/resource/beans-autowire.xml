@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="car" class="bdqn.t28autowire.car" p:pingpai="奥迪" p:color="水泥灰"/>
+    <bean id="address" class="bdqn.t28autowire.address" p:city="长沙" p:zhuzhi="雨花区"/>
+    <!--可以使用autowire属性进行自动装配
+      byName 跟具bean的名字和当前bean的 setter 风格属性名进行自动装配(属性名字)，有则进行匹配，无则不匹配
+      byTpye  跟具bean的类型和当前bean的 属性 类型进行自动装配-，如果ioc容器中有一个以上的类型匹配bean
+      则抛异常-->
+    <bean id="person" class="bdqn.t28autowire.person"
+          p:name="李湘" autowire="byName"/>
+</beans>

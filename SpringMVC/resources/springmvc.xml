@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/tool"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tool http://www.springframework.org/schema/tool/spring-tool.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--不配适配器也可以执行
+     前端控制器从DispacherServlet.properties配置文件中加载处理器映射器视图解析器等组件
+     如果不在xml里面配置，加载默认的
+     多个适配器和映射器是共存的-->
+
+    <!--处理流程分析 用户发送请求到前端控制器-->
+    <!--1非注解 配置处理器映射器将bean的name作为url进行查找，需要在配置handler
+  时指定beanname（就是url）-->
+    <bean class="
+    org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+    </bean>
+
+     <!--2调用处理器适配器对处理器映射器找到的handler进行包装执行，返回一个ModleAndView（mvc封装对象）
+     非注解 配置处理器适配器 所有处理器适配器都实现HandlerAdapter接口
+     要求编写的handler需要实现Controller接口-->
+    <bean class="
+    org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"
+    ></bean>
+
+    <!--非注解 另一个适配器
+    要求编写的handler需要实现HttpRequestHandler-->
+    <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"></bean>
+
+
+
+    <!--3适配器执行handler
+    配置Handler-->
+    <bean id="/queryItmes.action" class="com.bdqn.ItemList1.itemList1"></bean>
+    <bean id="abc" class="com.bdqn.ItemList1.itemList2"></bean>
+
+    <!--简单的url映射
+   simpleUrlHandlerMapping是BeeanNameUrlHandlerMapping的增强版本
+   他可以将url和处理器bean的id进行统一配置。
+   -->
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                                            <!--controller的bean id-->
+                    <prop key="/queryItmes1.action">/queryItmes.action</prop>
+                <prop key="/queryItmes2.action">abc</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--4视图解析器 解析jsp，使用默认的jstl标签，classpath得有jstl的jar包-->
+    <bean class="
+    org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--默认加载使用jstl-->
+        <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+        <!--配置jsp路径的前缀-->
+        <property name="prefix" value="/"/>
+        <!--配置jsp路径的后缀-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--使用bean的scope进行配置bean的作用域
+    prototype：原型的 容器初始化时不能创建bean的实例，而每次请求都会创建一个
+    新bean的实例，并返回
+    singleton ：（默认）单例的 容器初始化时创建bean实例，整个容器的生命周期只
+    创建一这一个bean,单例的-->
+    <bean id="scope" class="bdqn.t28beanScope.Scope" scope="prototype">
+        <property name="name" value="abc"></property>
+    </bean>
+</beans>

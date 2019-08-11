@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="arithmeticCalculator"
+          class="t28AOPXML.ArithmeticCalculatorImpl"></bean>
+
+    <bean id="springSection"
+          class="t28AOPXML.SpringSection"></bean>
+
+    <!--配置aop  proxy-target-class="true"taglib 默认使用jdk-->
+    <aop:config proxy-target-class="true">
+        <!--配置切点表达式-->
+        <aop:pointcut id="pointcut" expression="execution(* t28AOPXML.ArithmeticCalculatorImpl.*(int ,int ))"/>
+        <!--配置切面以及通知-->
+        <aop:aspect ref="springSection" order="1">
+            <!-- method:需要执行的方法  pointcut-ref：切入点表达式-->
+            <!--前置通知-->
+            <aop:before method="beforeMethod" pointcut-ref="pointcut"></aop:before>
+            <!--后置通知-->
+            <aop:after method="after" pointcut-ref="pointcut"></aop:after>
+            <!--返回通知-->
+            <aop:after-returning method="afterReturning" pointcut-ref="pointcut"
+            returning="count"></aop:after-returning>
+            <!--异常通知-->
+            <aop:after-throwing method="yc" pointcut-ref="pointcut"
+            throwing="ex"></aop:after-throwing>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

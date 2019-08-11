@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Mybatis_Spring2/Mybatis_Spring2.iml" filepath="$PROJECT_DIR$/Mybatis_Spring2/Mybatis_Spring2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringMVC/SpringMVC.iml" filepath="$PROJECT_DIR$/SpringMVC/SpringMVC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringTest/SpringTest.iml" filepath="$PROJECT_DIR$/SpringTest/SpringTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringTest2/SpringTest2.iml" filepath="$PROJECT_DIR$/SpringTest2/SpringTest2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringTest3/SpringTest3.iml" filepath="$PROJECT_DIR$/SpringTest3/SpringTest3.iml" />
+      <module fileurl="file://E:/北大青鸟/workspace/idea/spring/SpringTest/libs.iml" filepath="E:/北大青鸟/workspace/idea/spring/SpringTest/libs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maven/maven.iml" filepath="$PROJECT_DIR$/maven/maven.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis_Spring/mybatis_Spring.iml" filepath="$PROJECT_DIR$/mybatis_Spring/mybatis_Spring.iml" />
+      <module fileurl="file://E:/北大青鸟/workspace/idea/spring/SpringTest/sources.iml" filepath="E:/北大青鸟/workspace/idea/spring/SpringTest/sources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring.iml" filepath="$PROJECT_DIR$/spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ssm/ssm.iml" filepath="$PROJECT_DIR$/ssm/ssm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maven/test/test.iml" filepath="$PROJECT_DIR$/maven/test/test.iml" />
+    </modules>
+  </component>
+</project>

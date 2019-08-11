@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- namespace指用户自定义的命名空间 -->
+<mapper namespace="com.zxhm.dao.affair">
+    <!--&lt;!&ndash;sql片段&ndash;&gt;-->
+    <!--<sql id="sql1">-->
+          <!--&lt;!&ndash;通过queryVo的affairDtoCustom进行传参&ndash;&gt;-->
+        <!--<if test="affairDtoCustom!=null">-->
+            <!--<if test="affairDtoCustom.id!=null and affairDtoCustom!=''">-->
+                <!--AND  id =${id}-->
+            <!--</if>-->
+        <!--</if>-->
+    <!--</sql>-->
+    <!---->
+    <!--&lt;!&ndash;parameterType传入包装对象（包装了查询条件）-->
+        <!--resultType建议使用扩展对象&ndash;&gt;-->
+    <!--<select id="query" parameterType="com.zxhm.entity.queryVo"-->
+    <!--resultType="com.zxhm.entity.affairDtoCustom">-->
+        <!--SELECT * FROM affair-->
+        <!--<where>-->
+            <!--<include refid="sql1"/>-->
+        <!--</where>-->
+    <!--</select>-->
+    
+    <select id="query" resultType="com.zxhm.entity.affairDto">
+        SELECT * FROM affair
+    </select>
+</mapper>

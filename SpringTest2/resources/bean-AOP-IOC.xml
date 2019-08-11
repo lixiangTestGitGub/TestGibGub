@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="abc" class="iocaop.abc"></bean>
+    <bean id="advice" class="iocaop.Advice"></bean>
+    <!--p:interceptorNames 通知数组
+         p:target-ref="abc"被代理的对象
+         p:proxyTargetClass="true"被代理的对象是否为一个类,false为jdk true为cglib
+         如果代理类实现了接口就必须用cglib否则异常-->
+    <bean id="pfb" class="org.springframework.aop.framework.ProxyFactoryBean"
+        p:interceptorNames="advice"
+        p:target-ref="abc" p:proxyTargetClass="true">
+    </bean>
+
+</beans>

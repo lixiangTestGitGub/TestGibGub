@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+     <!--抽象bean bean的abstract属性为true 这样的bean是不能被ioc容器示例化
+      只用来被继承配置 若某一个bean的class属性没有指定，该bean必须是个抽象bean-->
+    <bean id="address" class="bdqn.t28autowire.address" p:zhuzhi="雨花"
+     p:city="长沙" abstract="true"></bean>
+    <!--bean之间的继承 ：使用bean的parent属性指定继承那个bean的配置 且可以覆盖bean父类的属性-->
+    <bean id="address1" parent="address" p:zhuzhi="福田"></bean>
+
+    <bean id="car" class="bdqn.t28autowire.car" p:color="大众红" p:pingpai="大众"></bean>
+    <!--依赖bean 需求bean有一个关联car 也就是说必须依赖car这个bean-->
+    <bean id="yilai" class="bdqn.t28autowire.person"
+     p:name="罗志祥" p:address-ref="address1" depends-on="car"></bean>
+</beans>

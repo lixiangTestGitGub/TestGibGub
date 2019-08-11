@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--生命周期1.调用构造，2初始化，3销毁-->
+    <bean id="shengmingzhouqi" class="bdqn.t28beanlifecycle.person"
+    destroy-method="destroy1" init-method="init1">
+        <property name="name" value="生命周期"></property>
+    </bean>
+
+
+    <!--实现BeanPostProcessor接口，并具体实现
+    Object postProcessBeforeInitialization(Object o, String s)：在init-method初始化之前调用
+    Object postProcessAfterInitialization(Object o, String s)：在init-method初始化之后调用
+    o :bean的实例本身
+    s ：IOC配置bean的名字
+    返回值：是实际返回给用户的那个bean，注意：可以在两个方法中修改返回的bean，甚至返回一个新的beam
+    -->
+    <!--配置bean的后置处理器：不需要配置id，IOC 容器会自动识别是一个BeanPostProcessor-->
+     <bean class="bdqn.t28beanlifecycle.MyBeanPostProcessor"></bean>
+
+</beans>

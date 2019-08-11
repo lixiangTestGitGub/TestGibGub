@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:contest="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+        <!--设置springIOC容器扫描的包-->
+        <!--可以使用resource-pattern="" 指定扫描资源-->
+        <!--<context:component-scan base-package="bdqn.t28Annotation"/>-->
+
+
+        <!--context:exclude-filter 子节点指定排除指定表达式的组件（指定不能用这个其他可以）-->
+        <!--context:include-filter 子节点指点包含指定表达式的组件 需要：
+        use-default-filters="false"配合使用（指定可以用这个其他都不行）-->
+        <contest:component-scan
+                base-package="bdqn.t28Annotation"
+                >
+                <!--type="annotation"跟具导入的包进行指定-->
+        <!--<context:exclude-filter type="annotation"-->
+                                <!--expression="org.springframework.stereotype.Repository"/>-->
+
+                               <!--<context:include-filter type="annotation"-->
+                <!--expression="org.springframework.stereotype.Repository"/>-->
+
+                <!--type="assignable"根据全类名进行指定-->
+                <!--<context:exclude-filter type="assignable"-->
+                                        <!--expression="bdqn.t28Annotation.controller.UserController"/>-->
+
+                <!--<context:include-filter type="assignable" expression="bdqn.t28Annotation.controller.UserController"/>-->
+
+        </contest:component-scan>
+</beans>

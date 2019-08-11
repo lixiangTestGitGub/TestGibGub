@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tool
+       http://www.springframework.org/schema/tool/spring-tool.xsd">
+    <!--注解方法配置-->
+    <!--配置处理器适配器-->
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
+    <!--配置处理器映射器-->
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
+
+    <!--使用mvc:annotation-driven代替上面的适配器和映射器配置
+    默认加载了很多参数绑定方法
+    你如json转换器默认加载了使用了mvc:annotation-driven不用配置上边两个-->
+    <!--<mvc:annotation-driven/>-->
+
+    <!--<bean id="itemList3" class="com.bdqn.Itemxml.itemList3"/>-->
+    <!--配置url映射-->
+    <!--<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
+    <!--<property name="mappings">-->
+        <!--<props>-->
+            <!--<prop key="/zhujie.action">itemList3</prop>-->
+        <!--</props>-->
+    <!--</property>-->
+    <!--</bean>-->
+
+    <!--<context:component-scan base-package="com.bdqn.Itemxml"/>-->
+
+    <!--视图解析器-->
+    <!--<bean class="-->
+    <!--org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+        <!--&lt;!&ndash;配置jsp路径的前缀&ndash;&gt;-->
+        <!--<property name="prefix" value="/"/>-->
+        <!--&lt;!&ndash;配置jsp路径的后缀&ndash;&gt;-->
+        <!--<property name="suffix" value=".jsp"/>-->
+    <!--</bean>-->
+
+</beans>

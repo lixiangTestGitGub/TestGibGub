@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--配置一个bean-->
+    <bean id="helloWord" class="bdqn.t28.HelloWord">
+      <!--配置属性值-->
+        <!--通过属性注入：通过setter方法进行注入属性值-->
+        <property name="userName" ><value><![CDATA[$&*@@@]]></value></property>
+    </bean>
+
+    <!--通过构造器注入属性值-->
+    <bean id="helloWord1" class="bdqn.t28.HelloWord">
+        <!--要求在bean中必须有构造-->
+        <constructor-arg  value="构造注入"></constructor-arg>
+    </bean>
+
+    <!--若bean有多个构造器，如何通过构造器来为bean属性赋值-->
+    <!--可以根据value和index进行跟精确的定位（了解）-->
+    <bean id="car" class="bdqn.t28.Car">
+        <constructor-arg value="福特" index="0"></constructor-arg>
+        <constructor-arg value="白色" index="1"></constructor-arg>
+        <constructor-arg value="长沙" index="2"></constructor-arg>
+    </bean>
+
+    <bean id="car1" class="bdqn.t28.Car">
+        <constructor-arg value="大众"></constructor-arg>
+        <constructor-arg value="水泥灰"></constructor-arg>
+        <constructor-arg value="12334" type="int"></constructor-arg>
+    </bean>
+
+    <bean id="person1" class="bdqn.t28.person">
+        <!--通过ref属性值指定当前属性指向哪一个bean-->
+        <property name="car" ref="car"></property>
+        <property name="name" value="zhangsan"></property>
+        <property name="age" value="12"></property>
+        <property name="sex" value="男"></property>
+        <!--设置级联属性 设置bean属性为null 了解-->
+        <property name="car.yanse"><null/></property>
+    </bean>
+
+    <!--集合属性-->
+    <bean id="person2" class="bdqn.t28collectioc.person">
+        <property name="name" value="集合属性"></property>
+        <!--装配集合属性-->
+        <property name="cars">
+            <!--list集合属性-->
+            <list>
+                <ref bean="car"></ref>
+                <ref bean="car1"></ref>
+            </list>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="ab" value-ref="car"></entry>
+                <entry key="abc" value-ref="car1"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <!--注入Properties-->
+    <bean name="datesource" class="bdqn.t28collectioc.DeteSource">
+        <property name="properties">
+            <!--使用props对子节点peop进行赋值 每个节点必须定义key属性-->
+            <props>
+                <prop key="root">root</prop>
+                <prop key="password">1234</prop>
+                <prop key="jdbcUrl">jdbc:mysql://test</prop>
+                <prop key="driver">com.mysql.jdbc.driver</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--配置单例集合bean 以供多个bean进行引用，记得需要导入util命名空间-->
+    <util:list id="carss">
+        <ref bean="car"></ref>
+        <ref bean="car1"></ref>
+    </util:list>
+
+    <bean id="person5" class="bdqn.t28collectioc.person" p:age="12"
+     p:name="p标签的使用" p:cars-ref="car"></bean>
+
+</beans>
+

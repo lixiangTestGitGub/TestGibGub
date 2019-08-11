@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="spring-beans-4.3.19.RELEASE">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/SpringTest/libs/spring-beans-4.3.19.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SpringTest/libs/spring-context-4.3.11.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SpringTest/libs/spring-core-4.3.13.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SpringTest/libs/spring-expression-4.3.11.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

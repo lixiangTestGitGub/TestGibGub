@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <bean id="student" class="bdqn.t28beanlifecycle.nes.student" destroy-method="destroy1"
+        init-method="init1"
+   >
+      <property name="name" value="生命周期"></property>
+  </bean>
+
+    <bean class="bdqn.t28beanlifecycle.nes.MyBean"></bean>
+
+</beans>

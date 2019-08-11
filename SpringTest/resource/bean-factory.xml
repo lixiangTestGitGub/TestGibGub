@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--通过静态方法来配置bean，注意不是静态工厂方法示例 而是bean实例-->
+    <!--class 属性：指向静态工厂方法的全类名
+        factory-method：指向静态工厂的静态方法
+        constructor-arg ：如果工厂需要传参数则使用constructor-arg 来配置参数
+        -->
+
+    <bean id="address1" class="bdqn.t28beanFatory.addresStaticFactory"
+    factory-method="getAddress">
+        <!--value：map设置的键-->
+    <constructor-arg value="a"></constructor-arg>
+    </bean>
+
+     <!--配置工厂实例-->
+    <bean id="address" class="bdqn.t28beanFatory.shilifangfa"></bean>
+    <!--factory-bean：指向实例工厂方法的全类名
+       factory-method：指向实例工厂的方法名字
+       constructor-arg ：如果工厂需要传参数则使用constructor-arg 来配置参数
+       -->
+
+    <!--通过实例方法配置bean-->
+    <bean id="address2" factory-bean="address"
+     factory-method="getAddress">
+        <constructor-arg value="lisi"></constructor-arg>
+    </bean>
+
+
+    <!--
+    实现接口FactoryBean<？>
+     通过factory来配置bean的实例
+     class：指定factorybean的全类名
+     property：配置factory的属性
+    -->
+    <bean id="addressA" class="bdqn.t28beanFatory.AddressFactoryBean">
+        <property name="zhuhzi" value="经弯路"></property>
+    </bean>
+
+</beans>
